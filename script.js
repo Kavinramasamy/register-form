@@ -1,8 +1,8 @@
 var selectTag = document.getElementById("country-state");
 var fname = document.getElementById("fname");
 var lname = document.getElementById("lname");
-var address1 = document.getElementById("address1");
-var address2 = document.getElementById("address2");
+var address1 = document.getElementById("email");
+var address2 = document.getElementById("address1");
 var pin = document.getElementById("pin");
 var gender = document.getElementById("gender");
 var food = document.getElementById("food");
@@ -10,7 +10,7 @@ var state = document.getElementById("state");
 var country = document.getElementById("country");
 
 
-function tablecontent(fname, lname, address, pincode, gender, food, state, country) {
+function tablecontent(fname, lname,email, address, pincode, gender, food, state, country) {
     var tbody = document.getElementById("tbody");
     var tr = document.createElement("tr");
     var td1 = document.createElement("td");
@@ -21,15 +21,17 @@ function tablecontent(fname, lname, address, pincode, gender, food, state, count
     var td6 = document.createElement("td");
     var td7 = document.createElement("td");
     var td8 = document.createElement("td");
+    var td9 = document.createElement("td");
     td1.innerHTML = fname;
     td2.innerHTML = lname;
-    td3.innerHTML = address;
-    td4.innerHTML = pincode;
-    td5.innerHTML = gender;
-    td6.innerHTML = food;
-    td7.innerHTML = state;
-    td8.innerHTML = country;
-    tr.append(td1, td2, td3, td4, td5, td6, td7, td8);
+    td3.innerHTML = email;
+    td4.innerHTML = address;
+    td5.innerHTML = pincode;
+    td6.innerHTML = gender;
+    td7.innerHTML = food;
+    td8.innerHTML = state;
+    td9.innerHTML = country;
+    tr.append(td1, td2, td3, td4, td5, td6, td7, td8,td9);
     tbody.append(tr);
 }
 
@@ -38,7 +40,6 @@ var submit = document.getElementById("submit");
 submit.addEventListener("click", function (event) {
     event.preventDefault();
     var address = [];
-    address.push(address1.value);
     address.push(address2.value);
 
     var gender = document.getElementsByName("gender");
@@ -64,10 +65,10 @@ submit.addEventListener("click", function (event) {
         value = alert("Choose atleast 2 options out of 5 in food");
     }
 
-    tablecontent(fname.value, lname.value, address.join(", "), pin.value, gender1.value, state.value, country.value)
+    tablecontent(fname.value, lname.value,email.value, address.join(", "), pin.value, gender1.value, state.value, country.value)
     fname.value = "";
     lname.value = "";
-    address1.value = "";
+    email.value = "";
     address2.value = "";
     pin.value = "";
     gender.value = "";
