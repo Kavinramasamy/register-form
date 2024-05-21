@@ -40,7 +40,7 @@ var submit = document.getElementById("submit");
 submit.addEventListener("click", function (event) {
     event.preventDefault();
     var address = [];
-    address.push(address2.value);
+    address.push(address1.value);
 
     var gender = document.getElementsByName("gender");
     var gender1;
